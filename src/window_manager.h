@@ -12,7 +12,7 @@ public:
 			return false;
 		}
 
-		m_window = glfwCreateWindow(width, height, "XATF", nullptr, nullptr);
+		m_window = glfwCreateWindow(width, height, APP_NAME, nullptr, nullptr);
 
 		if (!m_window)
 		{
