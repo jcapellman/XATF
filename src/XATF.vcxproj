@@ -73,12 +73,12 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <IncludePath>C:\glfw\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\glfw\lib-vc2015;$(LibraryPath)</LibraryPath>
+    <LibraryPath>C:\GLFW\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>false</LinkIncremental>
     <IncludePath>C:\glfw\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\glfw\lib-vc2015;$(LibraryPath)</LibraryPath>
+    <LibraryPath>C:\GLFW\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -160,6 +160,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="model_object.h" />
+    <ClInclude Include="texture_manager.h" />
     <ClInclude Include="window_manager.h" />
     <ClInclude Include="XATF.h" />
   </ItemGroup>
