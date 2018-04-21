@@ -25,8 +25,10 @@ public:
 		return true;
 	}
 
-	void add_model(const model_object obj)
+	void add_model(model_object obj)
 	{
+		obj.init();
+
 		m_objects.push_back(obj);
 	}
 
@@ -42,7 +44,7 @@ public:
 
 			for (auto x = m_objects.begin(); x != m_objects.end(); ++x)
 			{
-				x->Render();
+				x->render();
 			}
 
 			glfwSwapBuffers(m_window);
