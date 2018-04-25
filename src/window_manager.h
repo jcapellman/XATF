@@ -2,11 +2,12 @@
 
 #include "XATF.h"
 #include "model_object.h"
+#include "texture_manager.h"
 
 class window_manager
 {
 public:
-	bool init(const int width, const int height)
+	bool init(const int width, const int height, texture_manager * t_manager)
 	{
 		if (!glfwInit()) {
 			return false;
@@ -20,14 +21,18 @@ public:
 			return false;
 		}
 
+
+
 		glfwMakeContextCurrent(m_window);
+
+		m_texture_manager = t_manager;
 
 		return true;
 	}
 
 	void add_model(model_object obj)
 	{
-		obj.init();
+		obj.init(m_texture_manager);
 
 		m_objects.push_back(obj);
 	}
@@ -63,4 +68,5 @@ public:
 private:
 	GLFWwindow * m_window = nullptr;
 	std::list<model_object> m_objects;
+	texture_manager * m_texture_manager;
 };
