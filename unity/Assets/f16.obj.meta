@@ -1,0 +1,221 @@
+fileFormatVersion: 2
+guid: a977ab86a7576cb40a91815df2c33b44
+timeCreated: 1524622144
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: f16_blue_light
+    100004: f16_cockpit
+    100006: f16_engine
+    100008: f16_front_canopy
+    100010: f16_front_canopy_frame
+    100012: f16_front_gear_3
+    100014: f16_fuselage
+    100016: f16_horizontal_stabilizer
+    100018: f16_hud_display
+    100020: f16_left_AMRAAM
+    100022: f16_left_fuel_tank
+    100024: f16_left_wing_pivot
+    100026: f16_lights
+    100028: f16_rear_canopy
+    100030: f16_rear_canopy_frame
+    100032: f16_rear_gear_inside
+    100034: f16_rear_gear_left_door
+    100036: f16_rear_gear_right_door
+    100038: f16_red_light
+    100040: f16_right_AMRAAM
+    100042: f16_right_fuel_tank
+    100044: f16_right_wing_pivot
+    400000: //RootNode
+    400002: f16_blue_light
+    400004: f16_cockpit
+    400006: f16_engine
+    400008: f16_front_canopy
+    400010: f16_front_canopy_frame
+    400012: f16_front_gear_3
+    400014: f16_fuselage
+    400016: f16_horizontal_stabilizer
+    400018: f16_hud_display
+    400020: f16_left_AMRAAM
+    400022: f16_left_fuel_tank
+    400024: f16_left_wing_pivot
+    400026: f16_lights
+    400028: f16_rear_canopy
+    400030: f16_rear_canopy_frame
+    400032: f16_rear_gear_inside
+    400034: f16_rear_gear_left_door
+    400036: f16_rear_gear_right_door
+    400038: f16_red_light
+    400040: f16_right_AMRAAM
+    400042: f16_right_fuel_tank
+    400044: f16_right_wing_pivot
+    2100000: f16_blue_lightMat
+    2100002: f16_cockpitMat
+    2100004: f16_engineMat
+    2100006: f16_front_canopyMat
+    2100008: f16_front_canopy_frameMat
+    2100010: f16_front_gear_3Mat
+    2100012: f16_fuselageMat
+    2100014: f16_horizontal_stabilizerMat
+    2100016: f16_hud_displayMat
+    2100018: f16_left_AMRAAMMat
+    2100020: f16_left_fuel_tankMat
+    2100022: f16_left_wing_pivotMat
+    2100024: f16_lightsMat
+    2100026: f16_rear_canopyMat
+    2100028: f16_rear_canopy_frameMat
+    2100030: f16_rear_gear_insideMat
+    2100032: f16_rear_gear_left_doorMat
+    2100034: f16_rear_gear_right_doorMat
+    2100036: f16_red_lightMat
+    2100038: f16_right_AMRAAMMat
+    2100040: f16_right_fuel_tankMat
+    2100042: f16_right_wing_pivotMat
+    2300000: f16_blue_light
+    2300002: f16_cockpit
+    2300004: f16_engine
+    2300006: f16_front_canopy
+    2300008: f16_front_canopy_frame
+    2300010: f16_front_gear_3
+    2300012: f16_fuselage
+    2300014: f16_horizontal_stabilizer
+    2300016: f16_hud_display
+    2300018: f16_left_AMRAAM
+    2300020: f16_left_fuel_tank
+    2300022: f16_left_wing_pivot
+    2300024: f16_lights
+    2300026: f16_rear_canopy
+    2300028: f16_rear_canopy_frame
+    2300030: f16_rear_gear_inside
+    2300032: f16_rear_gear_left_door
+    2300034: f16_rear_gear_right_door
+    2300036: f16_red_light
+    2300038: f16_right_AMRAAM
+    2300040: f16_right_fuel_tank
+    2300042: f16_right_wing_pivot
+    3300000: f16_blue_light
+    3300002: f16_cockpit
+    3300004: f16_engine
+    3300006: f16_front_canopy
+    3300008: f16_front_canopy_frame
+    3300010: f16_front_gear_3
+    3300012: f16_fuselage
+    3300014: f16_horizontal_stabilizer
+    3300016: f16_hud_display
+    3300018: f16_left_AMRAAM
+    3300020: f16_left_fuel_tank
+    3300022: f16_left_wing_pivot
+    3300024: f16_lights
+    3300026: f16_rear_canopy
+    3300028: f16_rear_canopy_frame
+    3300030: f16_rear_gear_inside
+    3300032: f16_rear_gear_left_door
+    3300034: f16_rear_gear_right_door
+    3300036: f16_red_light
+    3300038: f16_right_AMRAAM
+    3300040: f16_right_fuel_tank
+    3300042: f16_right_wing_pivot
+    4300000: f16_blue_light
+    4300002: f16_cockpit
+    4300004: f16_engine
+    4300006: f16_front_canopy
+    4300008: f16_front_canopy_frame
+    4300010: f16_front_gear_3
+    4300012: f16_fuselage
+    4300014: f16_horizontal_stabilizer
+    4300016: f16_hud_display
+    4300018: f16_left_AMRAAM
+    4300020: f16_left_fuel_tank
+    4300022: f16_left_wing_pivot
+    4300024: f16_lights
+    4300026: f16_rear_canopy
+    4300028: f16_rear_canopy_frame
+    4300030: f16_rear_gear_inside
+    4300032: f16_rear_gear_left_door
+    4300034: f16_rear_gear_right_door
+    4300036: f16_red_light
+    4300038: f16_right_AMRAAM
+    4300040: f16_right_fuel_tank
+    4300042: f16_right_wing_pivot
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
