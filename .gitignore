@@ -1,5 +1,6 @@
 .vs/
-x64/
-x86/
-unity/Library/ShaderCache/
-unity/Library/metadata/
+src/XATF.UWP/Content/bin/
+src/XATF.UWP/Content/obj/
+src/XATF.UWP/bin/
+src/XATF.UWP/obj/
+src/packages/
