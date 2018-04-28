@@ -10,3 +10,11 @@ A small top-down MonoGame/C# game around an idea I had back in 2007.
 * iOS
 * Android
 * Windows 10
+
+## Work Remaining
+* Editor to build levels
+* Save/Load Game
+* Music
+* Sound Effectd
+* Plane Graphics
+* Tile Graphics
