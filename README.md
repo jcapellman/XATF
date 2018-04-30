@@ -12,9 +12,18 @@ A small top-down MonoGame/C# game around an idea I had back in 2007.
 * Windows 10
 
 ## Work Remaining
+
+### Programming Work Remaining
 * Editor to build levels
 * Save/Load Game
+
+### Audio Work Remaining
 * Music
-* Sound Effectd
+* Sound Effects
+
+### Graphics Work Remaining
 * Plane Graphics
 * Tile Graphics
+* Story Graphics
+* HUD Graphics
+* Main Menu Graphics
