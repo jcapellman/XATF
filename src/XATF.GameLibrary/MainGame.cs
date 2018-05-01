@@ -1,16 +1,21 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using XATF.GameLibrary.GameObjects;
+using XATF.GameLibrary.Renderables;
 
 namespace XATF.GameLibrary
 {
     public class MainGame : Game
     {
-        GraphicsDeviceManager graphics;
-        SpriteBatch spriteBatch;
+        GraphicsDeviceManager _graphics;
+        SpriteBatch _spriteBatch;
+
+        private Aircraft aircraftPlayer = new Aircraft();
+        private Map map = new Map();
 
         public MainGame()
         {
-            graphics = new GraphicsDeviceManager(this);
+            _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
         }
         
@@ -21,7 +26,11 @@ namespace XATF.GameLibrary
         
         protected override void LoadContent()
         {
-            spriteBatch = new SpriteBatch(GraphicsDevice);
+            _spriteBatch = new SpriteBatch(GraphicsDevice);
+
+            map.LoadMap("E1M1", Content);
+
+            aircraftPlayer.Initialize("F25", Vector2.One, Content);
         }
         
         protected override void UnloadContent()
@@ -36,8 +45,16 @@ namespace XATF.GameLibrary
         
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.Black);
+
+            _spriteBatch.Begin();
+
+            map.Render(_spriteBatch);
+
+            aircraftPlayer.Render(_spriteBatch);
             
+            _spriteBatch.End();
+
             base.Draw(gameTime);
         }
     }
