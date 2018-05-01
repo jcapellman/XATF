@@ -106,8 +106,12 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="GameObjects\Map.cs" />
     <Compile Include="MainGame.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Renderables\Renderable.cs" />
+    <Compile Include="Renderables\MapTile.cs" />
+    <Compile Include="Renderables\Aircraft.cs" />
     <EmbeddedResource Include="Properties\XATF.GameLibrary.rd.xml" />
   </ItemGroup>
   <ItemGroup>
