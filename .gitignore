@@ -4,3 +4,5 @@ src/XATF.UWP/Content/obj/
 src/XATF.UWP/bin/
 src/XATF.UWP/obj/
 src/packages/
+obj/
+bin/
