@@ -31,7 +31,7 @@ namespace XATF.GameLibrary.GameObjects
         {
             foreach (var tile in _mapTiles)
             {
-                tile.Update();
+                tile.Update(0, 5);
             }
         }
 

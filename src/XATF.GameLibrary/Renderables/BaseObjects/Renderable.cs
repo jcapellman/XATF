@@ -22,6 +22,10 @@ namespace XATF.GameLibrary.Renderables.BaseObjects
             spriteBatch.Draw(Texture, Position, Color.White);
         }
 
-        public abstract void Update();
+        public void Update(int x, int y)
+        {
+            Position.X += x;
+            Position.Y += y;
+        }
     }
 }

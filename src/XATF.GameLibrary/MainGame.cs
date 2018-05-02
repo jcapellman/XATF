@@ -1,6 +1,7 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System.Text;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-
+using Microsoft.Xna.Framework.Input;
 using XATF.GameLibrary.GameObjects;
 using XATF.GameLibrary.Renderables.BaseObjects;
 
@@ -10,9 +11,9 @@ namespace XATF.GameLibrary
     {
         GraphicsDeviceManager _graphics;
         SpriteBatch _spriteBatch;
-
-        private Aircraft aircraftPlayer = new Aircraft();
+        
         private Map map = new Map();
+        private Player player = new Player();
 
         public MainGame()
         {
@@ -31,7 +32,7 @@ namespace XATF.GameLibrary
 
             map.LoadMap("E1M1", Content);
 
-            aircraftPlayer.Initialize("F25", Vector2.One, Content);
+            player.Initialize("F25", Content);
         }
         
         protected override void UnloadContent()
@@ -42,6 +43,39 @@ namespace XATF.GameLibrary
         protected override void Update(GameTime gameTime)
         {
             map.Update();
+
+            var state = Keyboard.GetState();
+
+            // If they hit esc, exit
+            if (state.IsKeyDown(Keys.Escape))
+            {
+                Exit();
+            }
+
+            var playerX = 0;
+            var playerY = 0;
+
+            if (state.IsKeyDown(Keys.Right))
+            {
+                playerX += 10;
+            }
+
+            if (state.IsKeyDown(Keys.Left))
+            {
+                playerX -= 10;
+            }
+
+            if (state.IsKeyDown(Keys.Up))
+            {
+                playerY -= 10;
+            }
+            
+            if (state.IsKeyDown(Keys.Down))
+            {
+                playerY += 10;
+            }
+
+            player.Update(playerX, playerY);
 
             base.Update(gameTime);
         }
@@ -54,7 +88,7 @@ namespace XATF.GameLibrary
 
             map.Render(_spriteBatch);
 
-            aircraftPlayer.Render(_spriteBatch);
+            player.Render(_spriteBatch);
             
             _spriteBatch.End();
 
