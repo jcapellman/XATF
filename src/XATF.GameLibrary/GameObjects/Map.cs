@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
-using XATF.GameLibrary.Renderables;
+using XATF.GameLibrary.Renderables.BaseObjects;
 
 namespace XATF.GameLibrary.GameObjects
 {

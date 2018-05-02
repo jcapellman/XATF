@@ -1,7 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+
 using XATF.GameLibrary.GameObjects;
-using XATF.GameLibrary.Renderables;
+using XATF.GameLibrary.Renderables.BaseObjects;
 
 namespace XATF.GameLibrary
 {

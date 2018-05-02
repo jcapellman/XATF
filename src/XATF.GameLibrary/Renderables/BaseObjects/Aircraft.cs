@@ -1,4 +1,4 @@
-﻿namespace XATF.GameLibrary.Renderables
+﻿namespace XATF.GameLibrary.Renderables.BaseObjects
 {
     public class Aircraft : Renderable
     {

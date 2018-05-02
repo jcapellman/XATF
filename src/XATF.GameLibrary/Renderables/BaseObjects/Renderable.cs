@@ -2,7 +2,7 @@
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace XATF.GameLibrary.Renderables
+namespace XATF.GameLibrary.Renderables.BaseObjects
 {
     public abstract class Renderable
     {
@@ -19,7 +19,7 @@ namespace XATF.GameLibrary.Renderables
 
         public void Render(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(Texture, Position, Color.Black);
+            spriteBatch.Draw(Texture, Position, Color.White);
         }
     }
 }
