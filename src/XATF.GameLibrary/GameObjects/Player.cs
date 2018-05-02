@@ -15,7 +15,7 @@ namespace XATF.GameLibrary.GameObjects
             _playerAircraft.Initialize(aircraftName, Vector2.One, content);
         }
 
-        public void Update(int x, int y)
+        public void Update(int x, int y, (float width, float height) resolution)
         {
             _playerAircraft.Update(x, y);
         }

@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using Windows.UI.ViewManagement;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -14,6 +15,18 @@ namespace XATF.GameLibrary
         
         private Map map = new Map();
         private Player player = new Player();
+        private HUD hud = new HUD();
+
+        private (float width, float height) Resolution
+        {
+            get
+            {
+                var width = ApplicationView.GetForCurrentView().VisibleBounds.Width;
+                var height = ApplicationView.GetForCurrentView().VisibleBounds.Height;
+
+                return ((float width, float height)) (width, height);
+            }
+        }
 
         public MainGame()
         {
@@ -30,6 +43,8 @@ namespace XATF.GameLibrary
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
+            hud.Initialize("E1M1", Content);
+
             map.LoadMap("E1M1", Content);
 
             player.Initialize("F25", Content);
@@ -45,8 +60,7 @@ namespace XATF.GameLibrary
             map.Update();
 
             var state = Keyboard.GetState();
-
-            // If they hit esc, exit
+            
             if (state.IsKeyDown(Keys.Escape))
             {
                 Exit();
@@ -75,7 +89,7 @@ namespace XATF.GameLibrary
                 playerY += 10;
             }
 
-            player.Update(playerX, playerY);
+            player.Update(playerX, playerY, Resolution);
 
             base.Update(gameTime);
         }
@@ -90,6 +104,8 @@ namespace XATF.GameLibrary
 
             player.Render(_spriteBatch);
             
+            hud.Render(_spriteBatch, Resolution);
+
             _spriteBatch.End();
 
             base.Draw(gameTime);
