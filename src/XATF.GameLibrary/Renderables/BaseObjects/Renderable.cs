@@ -21,5 +21,7 @@ namespace XATF.GameLibrary.Renderables.BaseObjects
         {
             spriteBatch.Draw(Texture, Position, Color.White);
         }
+
+        public abstract void Update();
     }
 }

@@ -3,5 +3,9 @@
     public class Aircraft : Renderable
     {
         protected override string FolderBase => "Aircraft";
+
+        public override void Update()
+        {
+        }
     }
 }

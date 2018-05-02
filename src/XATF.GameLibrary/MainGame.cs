@@ -41,6 +41,8 @@ namespace XATF.GameLibrary
         
         protected override void Update(GameTime gameTime)
         {
+            map.Update();
+
             base.Update(gameTime);
         }
         
