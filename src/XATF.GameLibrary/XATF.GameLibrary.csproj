@@ -114,6 +114,8 @@
     <Compile Include="Renderables\BaseObjects\Renderable.cs" />
     <Compile Include="Renderables\BaseObjects\MapTile.cs" />
     <Compile Include="Renderables\BaseObjects\Aircraft.cs" />
+    <Compile Include="Scenes\BaseScene.cs" />
+    <Compile Include="Scenes\GameScene.cs" />
     <EmbeddedResource Include="Properties\XATF.GameLibrary.rd.xml" />
   </ItemGroup>
   <ItemGroup>

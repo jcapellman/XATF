@@ -1,10 +1,9 @@
-﻿using System.Text;
-using Windows.UI.ViewManagement;
+﻿using Windows.UI.ViewManagement;
+
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
-using XATF.GameLibrary.GameObjects;
-using XATF.GameLibrary.Renderables.BaseObjects;
+
+using XATF.GameLibrary.Scenes;
 
 namespace XATF.GameLibrary
 {
@@ -12,10 +11,8 @@ namespace XATF.GameLibrary
     {
         GraphicsDeviceManager _graphics;
         SpriteBatch _spriteBatch;
-        
-        private Map map = new Map();
-        private Player player = new Player();
-        private HUD hud = new HUD();
+
+        private BaseScene _scene;
 
         private (float width, float height) Resolution
         {
@@ -43,11 +40,8 @@ namespace XATF.GameLibrary
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            hud.Initialize("E1M1", Content);
-
-            map.LoadMap("E1M1", Content);
-
-            player.Initialize("F25", Content);
+            _scene = new GameScene();
+            _scene.Initialize(Content, "E1M1");
         }
         
         protected override void UnloadContent()
@@ -57,39 +51,7 @@ namespace XATF.GameLibrary
         
         protected override void Update(GameTime gameTime)
         {
-            map.Update();
-
-            var state = Keyboard.GetState();
-            
-            if (state.IsKeyDown(Keys.Escape))
-            {
-                Exit();
-            }
-
-            var playerX = 0;
-            var playerY = 0;
-
-            if (state.IsKeyDown(Keys.Right))
-            {
-                playerX += 10;
-            }
-
-            if (state.IsKeyDown(Keys.Left))
-            {
-                playerX -= 10;
-            }
-
-            if (state.IsKeyDown(Keys.Up))
-            {
-                playerY -= 10;
-            }
-            
-            if (state.IsKeyDown(Keys.Down))
-            {
-                playerY += 10;
-            }
-
-            player.Update(playerX, playerY, Resolution);
+           _scene.Update(Resolution);
 
             base.Update(gameTime);
         }
@@ -100,12 +62,8 @@ namespace XATF.GameLibrary
 
             _spriteBatch.Begin();
 
-            map.Render(_spriteBatch);
-
-            player.Render(_spriteBatch);
+            _scene.Render(_spriteBatch, Resolution);
             
-            hud.Render(_spriteBatch, Resolution);
-
             _spriteBatch.End();
 
             base.Draw(gameTime);
