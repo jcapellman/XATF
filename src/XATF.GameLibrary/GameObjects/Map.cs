@@ -10,10 +10,18 @@ namespace XATF.GameLibrary.GameObjects
 {
     public class Map
     {
+        private List<Aircraft> _enemies = new List<Aircraft>();
         private readonly List<MapTile> _mapTiles = new List<MapTile>();
 
         public void LoadMap(string name, ContentManager content)
         {
+            var aircraft = new Aircraft();
+
+            aircraft.Initialize("Mig51", new Vector2(30, -10), content);
+
+            _enemies.Add(aircraft);
+            _enemies.Add(aircraft);
+
             for (var x = 0; x <= 3; x++)
             {
                 for (var y = 0; y < 100; y++)
@@ -31,7 +39,12 @@ namespace XATF.GameLibrary.GameObjects
         {
             foreach (var tile in _mapTiles)
             {
-                tile.Update(0, 5);
+                tile.Update(0, 2);
+            }
+
+            foreach (var enemy in _enemies)
+            {
+                enemy.Update(0, 3);
             }
         }
 
@@ -40,6 +53,11 @@ namespace XATF.GameLibrary.GameObjects
             foreach (var tile in _mapTiles)
             {
                 tile.Render(spriteBatch);
+            }
+
+            foreach (var enemy in _enemies)
+            {
+                enemy.Render(spriteBatch);
             }
         }
     }
