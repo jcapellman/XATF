@@ -6,23 +6,16 @@ using XATF.GameLibrary.Renderables.BaseObjects;
 
 namespace XATF.GameLibrary.GameObjects
 {
-    public class Player
+    public class Player : BaseGameObject<Aircraft>
     {
-        private readonly Aircraft _playerAircraft = new Aircraft();
-        
-        public void Initialize(string aircraftName, ContentManager content)
+        public override void Initialize(string objectName, ContentManager content)
         {
-            _playerAircraft.Initialize(aircraftName, Vector2.One, content);
+            Renderable = new Aircraft(objectName, Vector2.One, content);
         }
 
-        public void Update(int x, int y, (float width, float height) resolution)
+        public override void Update(int x, int y)
         {
-            _playerAircraft.Update(x, y);
-        }
-
-        public void Render(SpriteBatch spriteBatch)
-        {
-            _playerAircraft.Render(spriteBatch);
+            Renderable?.Update(x, y);
         }
     }
 }
