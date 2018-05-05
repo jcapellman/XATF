@@ -106,6 +106,8 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="GameObjects\BaseGameObject.cs" />
+    <Compile Include="GameObjects\Enemy.cs" />
     <Compile Include="GameObjects\HUD.cs" />
     <Compile Include="GameObjects\Map.cs" />
     <Compile Include="GameObjects\Player.cs" />
@@ -114,6 +116,7 @@
     <Compile Include="Renderables\BaseObjects\Renderable.cs" />
     <Compile Include="Renderables\BaseObjects\MapTile.cs" />
     <Compile Include="Renderables\BaseObjects\Aircraft.cs" />
+    <Compile Include="Renderables\BaseObjects\Text.cs" />
     <Compile Include="Scenes\BaseScene.cs" />
     <Compile Include="Scenes\GameScene.cs" />
     <EmbeddedResource Include="Properties\XATF.GameLibrary.rd.xml" />
