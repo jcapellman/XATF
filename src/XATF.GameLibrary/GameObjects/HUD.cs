@@ -1,31 +1,30 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
-using Microsoft.Xna.Framework.Graphics;
+
+using XATF.GameLibrary.Renderables.BaseObjects;
 
 namespace XATF.GameLibrary.GameObjects
 {
-    public class HUD
+    public class HUD : BaseGameObject<Text>
     {
         private int _score;
         private int _health;
-        private string _levelName;
 
-        private SpriteFont _font;
-
-        public void Initialize(string levelName, ContentManager content)
+        public HUD()
         {
-            _font = content.Load<SpriteFont>("HUD");
-            _levelName = levelName;
+            _score = 0;
+            _health = 100;
         }
 
-        public void Render(SpriteBatch spriteBatch, (float width, float height) resolution)
+        public override void Initialize(string objectName, ContentManager content)
         {
-            var scoreString = _font.MeasureString(_score.ToString());
+            Renderables.Add(new Text(objectName, new Vector2(10, 20), content));
+            Renderables.Add(new Text(_score.ToString(), new Vector2((1920 - _score.ToString().Length) / 2, 20), content));
+        }
 
-            spriteBatch.DrawString(_font, _score.ToString(),
-                new Vector2((resolution.width - scoreString.Length()) / 2, 20), Color.White);
-
-            spriteBatch.DrawString(_font, _levelName, new Vector2(10, 20), Color.White);
+        public override void Update(int x, int y)
+        {
+            
         }
     }
 }
