@@ -106,6 +106,7 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Enums\RenderableBaseType.cs" />
     <Compile Include="GameObjects\BaseGameObject.cs" />
     <Compile Include="GameObjects\Enemy.cs" />
     <Compile Include="GameObjects\HUD.cs" />
