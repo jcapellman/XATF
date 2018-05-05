@@ -18,8 +18,8 @@ namespace XATF.GameLibrary.GameObjects
 
         public override void Initialize(string objectName, ContentManager content)
         {
-            Renderables.Add(new Text(objectName, new Vector2(10, 20), content));
-            Renderables.Add(new Text(_score.ToString(), new Vector2((1920 - _score.ToString().Length) / 2, 20), content));
+            Renderables.Add(new Text(objectName, "HUD", new Vector2(10, 20), content));
+            Renderables.Add(new Text(_score.ToString(), "HUD", new Vector2((1920 - _score.ToString().Length) / 2, 20), content));
         }
 
         public override void Update(int x, int y)
