@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+
 using XATF.GameLibrary.GameObjects;
 
 namespace XATF.GameLibrary.Scenes
@@ -15,14 +16,14 @@ namespace XATF.GameLibrary.Scenes
         {
             hud.Initialize(argument, content);
 
-            map.LoadMap(argument, content);
+            map.Initialize(argument, content);
 
             player.Initialize("F25", content);
         }
 
         public override void Update((float width, float height) resolution)
         {
-            map.Update();
+            map.Update(0, 0);
 
             var state = Keyboard.GetState();
 
@@ -54,7 +55,7 @@ namespace XATF.GameLibrary.Scenes
                 playerY += 10;
             }
 
-            player.Update(playerX, playerY, resolution);
+            player.Update(playerX, playerY);
 
         }
 
@@ -64,7 +65,7 @@ namespace XATF.GameLibrary.Scenes
 
             player.Render(spriteBatch);
 
-            hud.Render(spriteBatch, resolution);
+            hud.Render(spriteBatch);
         }
     }
 }
