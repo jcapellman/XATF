@@ -41,9 +41,16 @@ namespace XATF.GameLibrary
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
             _scene = new GameScene();
+
+            _scene.QuitGame += _scene_QuitGame;
             _scene.Initialize(Content, "E1M1");
         }
-        
+
+        private void _scene_QuitGame(object sender, System.EventArgs e)
+        {
+            Exit();
+        }
+
         protected override void UnloadContent()
         {
 
