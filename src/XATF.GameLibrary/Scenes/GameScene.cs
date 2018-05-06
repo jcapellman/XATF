@@ -25,38 +25,34 @@ namespace XATF.GameLibrary.Scenes
         {
             map.Update(0, 0);
 
-            var state = Keyboard.GetState();
-
-            if (state.IsKeyDown(Keys.Escape))
-            {
-                return;
-            }
-
             var playerX = 0;
             var playerY = 0;
 
-            if (state.IsKeyDown(Keys.Right))
-            {
-                playerX += 10;
-            }
+            var keys = GetKeyDown();
 
-            if (state.IsKeyDown(Keys.Left))
+            foreach (var key in keys)
             {
-                playerX -= 10;
-            }
-
-            if (state.IsKeyDown(Keys.Up))
-            {
-                playerY -= 10;
-            }
-
-            if (state.IsKeyDown(Keys.Down))
-            {
-                playerY += 10;
+                switch (key)
+                {
+                    case Keys.Escape:
+                        OnQuitGame();
+                        break;
+                    case Keys.Up:
+                        playerY -= 10;
+                        break;
+                    case Keys.Down:
+                        playerY += 10;
+                        break;
+                    case Keys.Left:
+                        playerX -= 10;
+                        break;
+                    case Keys.Right:
+                        playerX += 10;
+                        break;
+                }
             }
 
             player.Update(playerX, playerY);
-
         }
 
         public override void Render(SpriteBatch spriteBatch, (float width, float height) resolution)
