@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
-
+using XATF.GameLibrary.Common;
 using XATF.GameLibrary.Renderables.BaseObjects;
 
 namespace XATF.GameLibrary.GameObjects
@@ -16,10 +16,10 @@ namespace XATF.GameLibrary.GameObjects
             _health = 100;
         }
 
-        public override void Initialize(string objectName, ContentManager content)
+        public override void Initialize(string objectName, ContentManager content, ObjectWrapper wrapper)
         {
             Renderables.Add(new Text(objectName, "HUD", new Vector2(10, 20), content));
-            Renderables.Add(new Text(_score.ToString(), "HUD", new Vector2((1920 - _score.ToString().Length) / 2, 20), content));
+            Renderables.Add(new Text(_score.ToString(), "HUD", new Vector2((wrapper.Resolution.width - _score.ToString().Length) / 2, 20), content));
         }
 
         public override void Update(int x, int y)

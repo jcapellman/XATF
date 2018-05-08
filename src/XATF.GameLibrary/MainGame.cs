@@ -3,6 +3,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
+using XATF.GameLibrary.Common;
 using XATF.GameLibrary.Scenes;
 
 namespace XATF.GameLibrary
@@ -25,6 +26,11 @@ namespace XATF.GameLibrary
             }
         }
 
+        private ObjectWrapper Wrapper => new ObjectWrapper
+        {
+            Resolution = Resolution
+        };
+
         public MainGame()
         {
             _graphics = new GraphicsDeviceManager(this);
@@ -43,7 +49,7 @@ namespace XATF.GameLibrary
             _scene = new GameScene();
 
             _scene.QuitGame += _scene_QuitGame;
-            _scene.Initialize(Content, "E1M1");
+            _scene.Initialize(Content, Wrapper, "E1M1");
         }
 
         private void _scene_QuitGame(object sender, System.EventArgs e)
@@ -69,7 +75,7 @@ namespace XATF.GameLibrary
 
             _spriteBatch.Begin();
 
-            _scene.Render(_spriteBatch, Resolution);
+            _scene.Render(_spriteBatch);
             
             _spriteBatch.End();
 

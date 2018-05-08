@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
+using XATF.GameLibrary.Common;
 using XATF.GameLibrary.GameObjects;
 
 namespace XATF.GameLibrary.Scenes
@@ -12,13 +13,13 @@ namespace XATF.GameLibrary.Scenes
         private Player player = new Player();
         private HUD hud = new HUD();
 
-        public override void Initialize(ContentManager content, string argument = null)
+        public override void Initialize(ContentManager content, ObjectWrapper wrapper, string argument = null)
         {
-            hud.Initialize(argument, content);
+            hud.Initialize(argument, content, wrapper);
 
-            map.Initialize(argument, content);
+            map.Initialize(argument, content, wrapper);
 
-            player.Initialize("F25", content);
+            player.Initialize("F25", content, wrapper);
         }
 
         public override void Update((float width, float height) resolution)
@@ -55,7 +56,7 @@ namespace XATF.GameLibrary.Scenes
             player.Update(playerX, playerY);
         }
 
-        public override void Render(SpriteBatch spriteBatch, (float width, float height) resolution)
+        public override void Render(SpriteBatch spriteBatch)
         {
             map.Render(spriteBatch);
 

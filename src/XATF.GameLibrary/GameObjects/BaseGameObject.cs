@@ -3,6 +3,7 @@
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
+using XATF.GameLibrary.Common;
 using XATF.GameLibrary.Renderables.BaseObjects;
 
 namespace XATF.GameLibrary.GameObjects
@@ -17,7 +18,7 @@ namespace XATF.GameLibrary.GameObjects
             Renderables = new List<T>();
         }
 
-        public abstract void Initialize(string objectName, ContentManager content);
+        public abstract void Initialize(string objectName, ContentManager content, ObjectWrapper wrapper);
 
         public abstract void Update(int x, int y);
 

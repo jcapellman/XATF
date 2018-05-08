@@ -1,13 +1,14 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 
+using XATF.GameLibrary.Common;
 using XATF.GameLibrary.Renderables.BaseObjects;
 
 namespace XATF.GameLibrary.GameObjects
 {
     public class Map : BaseGameObject<MapTile>
     {
-        public override void Initialize(string objectName, ContentManager content)
+        public override void Initialize(string objectName, ContentManager content, ObjectWrapper wrapper)
         {
             // TODO: Load actual map file from the objectName parameter
             for (var x = 0; x <= 3; x++)
