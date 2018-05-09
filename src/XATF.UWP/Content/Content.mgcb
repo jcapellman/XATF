@@ -188,3 +188,9 @@
 /processorParam:TextureFormat=Color
 /build:Tiles/tex_Water.jpg
 
+#begin Data/Aircraft.json
+/copy:Data/Aircraft.json
+
+#begin Data/E1M1.json
+/copy:Data/E1M1.json
+

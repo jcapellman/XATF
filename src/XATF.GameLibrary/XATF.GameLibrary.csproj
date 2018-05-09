@@ -106,7 +106,15 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Common\ObjectWrapper.cs" />
+    <Compile Include="Common\Constants.cs" />
+    <Compile Include="Common\IoC.cs" />
+    <Compile Include="Data\BaseDAL.cs" />
+    <Compile Include="Data\SQLiteDAL.cs" />
+    <Compile Include="Data\Objects\Aircraft.cs" />
+    <Compile Include="Data\Objects\BaseDO.cs" />
+    <Compile Include="Data\Objects\HUD.cs" />
+    <Compile Include="Data\Objects\Level.cs" />
+    <Compile Include="Enums\MovementTypes.cs" />
     <Compile Include="Enums\RenderableBaseType.cs" />
     <Compile Include="GameObjects\BaseGameObject.cs" />
     <Compile Include="GameObjects\Enemy.cs" />
@@ -125,14 +133,20 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
-      <Version>6.1.2</Version>
+      <Version>6.1.4</Version>
     </PackageReference>
     <PackageReference Include="MonoGame.Framework.WindowsUniversal">
       <Version>3.6.0.1625</Version>
     </PackageReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Data\Aircraft.json" />
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>11.0.2</Version>
+    </PackageReference>
+    <PackageReference Include="Ninject">
+      <Version>3.3.4</Version>
+    </PackageReference>
+    <PackageReference Include="sqlite-net-pcl">
+      <Version>1.4.118</Version>
+    </PackageReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

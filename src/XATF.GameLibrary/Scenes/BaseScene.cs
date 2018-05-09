@@ -1,16 +1,16 @@
 ﻿using System;
+
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using XATF.GameLibrary.Common;
 
 namespace XATF.GameLibrary.Scenes
 {
     public abstract class BaseScene
     {
-        public abstract void Initialize(ContentManager content, ObjectWrapper wrapper, string argument = null);
+        public abstract void Initialize(ContentManager content, string argument = null);
 
-        public abstract void Update((float width, float height) resolution);
+        public abstract void Update();
 
         public abstract void Render(SpriteBatch spriteBatch);
 

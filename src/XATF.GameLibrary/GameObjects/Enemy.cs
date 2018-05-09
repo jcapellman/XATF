@@ -1,15 +1,25 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
-using XATF.GameLibrary.Common;
+
+using XATF.GameLibrary.Data.Objects;
+using XATF.GameLibrary.Enums;
 using XATF.GameLibrary.Renderables.BaseObjects;
+using Aircraft = XATF.GameLibrary.Data.Objects.Aircraft;
 
 namespace XATF.GameLibrary.GameObjects
 {
-    public class Enemy : BaseGameObject<Aircraft>
+    public class Enemy : BaseGameObject<Renderables.BaseObjects.Aircraft, Aircraft>
     {
-        public override void Initialize(string objectName, ContentManager content, ObjectWrapper wrapper)
+        public override void Initialize(Aircraft dataObject, ContentManager content)
         {
-            Renderable = new Aircraft(objectName, Vector2.One, content);
+            Renderable = new Renderables.BaseObjects.Aircraft(dataObject.TextureName, Vector2.One, content);
+
+            base.Initialize(dataObject, content);
+        }
+
+        public override void Move(MovementTypes movementType)
+        {
+            throw new System.NotImplementedException();
         }
 
         public override void Update(int x, int y)

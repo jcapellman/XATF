@@ -1,9 +1,14 @@
-﻿using Microsoft.Xna.Framework.Content;
+﻿using System;
+
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
 using XATF.GameLibrary.Common;
+using XATF.GameLibrary.Data.Objects;
+using XATF.GameLibrary.Enums;
 using XATF.GameLibrary.GameObjects;
+using HUD = XATF.GameLibrary.GameObjects.HUD;
 
 namespace XATF.GameLibrary.Scenes
 {
@@ -13,22 +18,35 @@ namespace XATF.GameLibrary.Scenes
         private Player player = new Player();
         private HUD hud = new HUD();
 
-        public override void Initialize(ContentManager content, ObjectWrapper wrapper, string argument = null)
+        public override void Initialize(ContentManager content, string argument = null)
         {
-            hud.Initialize(argument, content, wrapper);
+            var levelObject = IoC.DataAccess.GetOne<Level>(a => a.Name == argument);
 
-            map.Initialize(argument, content, wrapper);
+            if (levelObject == null)
+            {
+                throw new Exception($"Could not find level {argument}");
+            }
 
-            player.Initialize("F25", content, wrapper);
+            var hudObject = new Data.Objects.HUD
+            {
+                LevelName = levelObject.Name,
+                Score = 0,
+                Lives = 3
+            };
+
+            hud.Initialize(hudObject, content);
+
+            map.Initialize(levelObject, content);
+
+            var playerAircraft = IoC.DataAccess.GetOne<Aircraft>(a => a.ID == levelObject.PlayerAircraftID);
+
+            player.Initialize(playerAircraft, content);
         }
 
-        public override void Update((float width, float height) resolution)
+        public override void Update()
         {
             map.Update(0, 0);
-
-            var playerX = 0;
-            var playerY = 0;
-
+            
             var keys = GetKeyDown();
 
             foreach (var key in keys)
@@ -39,21 +57,19 @@ namespace XATF.GameLibrary.Scenes
                         OnQuitGame();
                         break;
                     case Keys.Up:
-                        playerY -= 10;
+                        player.Move(MovementTypes.UP);
                         break;
                     case Keys.Down:
-                        playerY += 10;
+                        player.Move(MovementTypes.DOWN);
                         break;
                     case Keys.Left:
-                        playerX -= 10;
+                        player.Move(MovementTypes.LEFT);
                         break;
                     case Keys.Right:
-                        playerX += 10;
+                        player.Move(MovementTypes.RIGHT);
                         break;
                 }
             }
-
-            player.Update(playerX, playerY);
         }
 
         public override void Render(SpriteBatch spriteBatch)

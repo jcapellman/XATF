@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 using XATF.GameLibrary.Common;
+using XATF.GameLibrary.Data;
 using XATF.GameLibrary.Scenes;
 
 namespace XATF.GameLibrary
@@ -12,25 +13,20 @@ namespace XATF.GameLibrary
     {
         GraphicsDeviceManager _graphics;
         SpriteBatch _spriteBatch;
-
+        
         private BaseScene _scene;
 
-        private (float width, float height) Resolution
+        private Vector2 Resolution
         {
             get
             {
                 var width = ApplicationView.GetForCurrentView().VisibleBounds.Width;
                 var height = ApplicationView.GetForCurrentView().VisibleBounds.Height;
 
-                return ((float width, float height)) (width, height);
+                return new Vector2((float) width, (float)height);
             }
         }
-
-        private ObjectWrapper Wrapper => new ObjectWrapper
-        {
-            Resolution = Resolution
-        };
-
+        
         public MainGame()
         {
             _graphics = new GraphicsDeviceManager(this);
@@ -46,10 +42,12 @@ namespace XATF.GameLibrary
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
+            IoC.Initialize(new SQLiteDAL(), Resolution);
+
             _scene = new GameScene();
 
             _scene.QuitGame += _scene_QuitGame;
-            _scene.Initialize(Content, Wrapper, "E1M1");
+            _scene.Initialize(Content, "E1M1");
         }
 
         private void _scene_QuitGame(object sender, System.EventArgs e)
@@ -64,7 +62,7 @@ namespace XATF.GameLibrary
         
         protected override void Update(GameTime gameTime)
         {
-           _scene.Update(Resolution);
+           _scene.Update();
 
             base.Update(gameTime);
         }
