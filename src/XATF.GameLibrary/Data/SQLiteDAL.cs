@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Reflection;
 
 using XATF.GameLibrary.Common;
 using XATF.GameLibrary.Data.Objects;
-
-using Aircraft = XATF.GameLibrary.Renderables.BaseObjects.Aircraft;
 
 namespace XATF.GameLibrary.Data
 {
@@ -14,12 +13,21 @@ namespace XATF.GameLibrary.Data
     {
         public SQLiteDAL()
         {
+            var tables = Assembly.GetAssembly(typeof(BaseDO)).GetTypes()
+                .Where(a => a.BaseType == typeof(BaseDO) && !a.IsAbstract)
+                .Select(b => (BaseDO)Activator.CreateInstance(b)).ToList();
+
+            if (!tables.Any())
+            {
+                return;
+            }
+
             using (var db = new SQLite.SQLiteConnection(Constants.FILENAME_SQLITE))
             {
-                db.CreateTable<Aircraft>();
-                db.CreateTable<HUD>();
-                db.CreateTable<Level>();
-
+                foreach (var table in tables)
+                {
+                    db.CreateTable(table.GetType());
+                }
             }
         }
         public override List<T> GetAll<T>(Expression<Func<T, bool>> expression = null)
