@@ -46,7 +46,9 @@ namespace XATF.GameLibrary
 
             _scene = new GameScene();
 
+            _scene.QuitGame -= _scene_QuitGame;
             _scene.QuitGame += _scene_QuitGame;
+
             _scene.Initialize(Content, "E1M1");
         }
 

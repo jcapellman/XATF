@@ -40,6 +40,11 @@ namespace XATF.GameLibrary.Scenes
 
             var playerAircraft = IoC.DataAccess.GetOne<Aircraft>(a => a.ID == levelObject.PlayerAircraftID);
 
+            if (playerAircraft == null)
+            {
+                throw new Exception($"Could not find aircraft {levelObject.PlayerAircraftID}");
+            }
+
             player.Initialize(playerAircraft, content);
         }
 
